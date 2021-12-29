@@ -47,8 +47,10 @@ interface IBoxWrapperProps {
 export const BoxDown = styled.div<IBoxWrapperProps>`
   display: ${(props) => (props.openChoices ? "block" : "none")};
   flex-direction: column;
-  width: calc(100% - 5px);
-  margin: 4px auto;
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  top: calc(100% + 8px);
   border: 1px solid #d1d1d1;
   border-radius: 4px;
   box-shadow: 0 2px 4px #0000001f;
