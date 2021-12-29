@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const SliderContainer = styled.div`
     margin-top: 24px;
-    max-width: 50%;
+    isolation: isolate;
+    position: relative;
 `
-
 export const Slider = styled.div`
-    &:before{
+    &::before{
         bottom: 0;
         content: "";
         display: block;
@@ -18,7 +18,7 @@ export const Slider = styled.div`
         z-index: 1;
     }
 
-    &:after{
+    &::after{
         background: linear-gradient(
             90deg,#fff0 0,#fff 90%,#fff);
         right: 0;
@@ -30,14 +30,13 @@ export const Slider = styled.div`
         }
     }
 `
-
 export const Control = styled.div`
     align-items: center;
     display: flex;
     position: absolute;
     z-index: 2;
+    cursor: pointer;
 `
-
 export const NextControl = styled(Control)`
     right: 0;
     & > button {
@@ -48,7 +47,6 @@ export const NextControl = styled(Control)`
         text-align: inherit;
     }
 `
-
 export const PrevControl = styled(Control)`
     left: 0;
     & > button {
@@ -59,7 +57,6 @@ export const PrevControl = styled(Control)`
         text-align: inherit;
     }
 `
-
 export const TagsContainer = styled.div`
     box-sizing: initial;
     display: flex;
@@ -68,4 +65,5 @@ export const TagsContainer = styled.div`
     scroll-behavior: smooth;
     margin-bottom: 0;
     margin-left: -8px;
+    gap:5px;
 `

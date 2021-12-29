@@ -32,10 +32,12 @@ export const StyledAutoComplete = styled.input<IStyledAutoComplete>`
   transition: all 0.4s;
   width: 100%;
   padding: 10px 40px;
+  background-color: #eee;
   border-radius: ${(props) =>
     props.borderRadius ? "24px;height: 40x;" : "4px;height: 54px;"};
   &:focus {
     outline: none;
+    background-color: #fff;
     box-shadow: ${(props) => (props.borderRadius ? ";" : "0 0 0 5px #0003;")};
   }
 `;

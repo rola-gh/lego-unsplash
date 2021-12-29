@@ -23,8 +23,8 @@ export default function SearchDefaultBox({
           <span>Recent Searches</span>.<button>Clear</button>
           <ul>
             {recent.map((item) => (
-              <li onClick={() => handleClickChoice(item)}>
-                <Tag>{item}</Tag>
+              <li key={item} onClick={() => handleClickChoice(item)}>
+                <Tag text={item}>{item}</Tag>
               </li>
             ))}
           </ul>
@@ -34,8 +34,8 @@ export default function SearchDefaultBox({
         <span>Trending Searches</span>
         <ul>
           {searches.map((item) => (
-            <li onClick={() => handleClickChoice(item)}>
-              <Tag>{item}</Tag>
+            <li key={item} onClick={() => handleClickChoice(item)}>
+              <Tag text={item}>{item}</Tag>
             </li>
           ))}
         </ul>
@@ -45,8 +45,8 @@ export default function SearchDefaultBox({
         <span>Trending Topics</span>
         <ul>
           {topics.map((item) => (
-            <li onClick={() => handleClickChoice(item)}>
-              <Tag>{item}</Tag>
+            <li key={item} onClick={() => handleClickChoice(item)}>
+              <Tag text={item}>{item}</Tag>
             </li>
           ))}
         </ul>
@@ -55,8 +55,8 @@ export default function SearchDefaultBox({
         <span>Trending Collections</span>
         <ul>
           {collections.map((item) => (
-            <li onClick={() => handleClickChoice(item)}>
-              <Tag>{item}</Tag>
+            <li key={item} onClick={() => handleClickChoice(item)}>
+              <Tag text={item}>{item}</Tag>
             </li>
           ))}
         </ul>

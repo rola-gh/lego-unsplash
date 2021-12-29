@@ -8,10 +8,15 @@ export const TagContainer = styled.div`
     display: flex;
     overflow: hidden;
     transition: background-color .1s ease-in-out;
-    max-width: fit-content;
+    min-width: fit-content;
     
     & > img{
         border-style: none;
+    }
+
+    & > a{
+        color: inherit;
+        text-decoration: none;
     }
 
     &:hover{
@@ -23,4 +28,5 @@ export const Tag = styled.div`
     align-items: center;
     display: flex;
     padding: 8px 16px;
+    text-decoration: none;
 `;
