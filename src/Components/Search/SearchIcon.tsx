@@ -1,6 +1,6 @@
 export default function Icon() {
   return (
-    <button>
+    <button className="searchIcon" type="submit">
       <svg
         width="25"
         height="25"

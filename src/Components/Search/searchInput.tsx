@@ -1,8 +1,9 @@
 import { memo, useRef, useState } from "react";
-import Icon from "./Icon";
+import Icon from "./SearchIcon";
 import InputChoices from "./inputChoices";
 import { BoxDown, StyledAutoComplete, Wrapper } from "./search.style";
 import SearchDefaultBox from "./SearchDefaultBox";
+import CloseIcon from "./CloseIcon";
 
 const staticData = {
   searches: ["one", "two", "three", "four", "five"],
@@ -33,6 +34,7 @@ function SearchInput({
 
   const ref = useRef<HTMLDivElement>(null);
 
+  // used to change the value of the input with the value that you have clicked on
   const handleClickChoice = (item: string) => {
     setstate(item);
     setOpenChoices(false);
@@ -74,6 +76,7 @@ function SearchInput({
         name={name}
         borderRadius={borderRadius}
       />
+      {state && <CloseIcon onClick={() => setstate("")} />}
       <BoxDown openChoices={openChoices}>
         {state ? (
           <InputChoices
@@ -85,6 +88,7 @@ function SearchInput({
             searches={staticData.searches}
             topics={staticData.topics}
             collections={staticData.collections}
+            handleClickChoice={handleClickChoice}
           />
         )}
       </BoxDown>
@@ -93,3 +97,31 @@ function SearchInput({
 }
 
 export default memo(SearchInput);
+
+// Demo Of using Component
+
+// const [inputChange, setInputChange] = useState<string>("");
+// const handleChange = (text: string) => {
+//   setInputChange(text);
+// };
+
+{
+  /* <SearchInput
+placeholder="Auto Complete"
+onChange={handleChange}
+value={inputChange}
+name="autoComplete"
+data={["one", "two", "three", "four"]}
+/> */
+}
+
+{
+  /* <SearchInput
+placeholder="Auto Complete"
+onChange={handleChange}
+value={inputChange}
+name="autoComplete"
+borderRadius={true}
+data={["one", "two", "three", "four"]}
+/> */
+}

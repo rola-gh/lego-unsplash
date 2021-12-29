@@ -7,14 +7,18 @@ interface IStyledWrapper {
 export const Wrapper = styled.div<IStyledWrapper>`
   width: 100%;
   position: relative;
-  & button {
+  & > Button {
     background: none;
     border: none;
     position: absolute;
-    left: 10px;
     top: ${(props) => (props.borderRadius ? "8px" : "13px")};
-    max-width: 10px;
-    color: #d1d1d1;
+    cursor: pointer;
+  }
+  & .searchIcon {
+    left: 10px;
+  }
+  & .closeIcon {
+    right: 10px;
   }
 `;
 
@@ -32,7 +36,7 @@ export const StyledAutoComplete = styled.input<IStyledAutoComplete>`
     props.borderRadius ? "24px;height: 40x;" : "4px;height: 54px;"};
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 5px #0003;
+    box-shadow: ${(props) => (props.borderRadius ? ";" : "0 0 0 5px #0003;")};
   }
 `;
 
@@ -73,4 +77,19 @@ export const ChoicesWrapper = styled.div`
 export const SearchBox = styled.div`
   flex-direction: column;
   margin: 5px auto;
+
+  & > div {
+    margin-bottom: 8px;
+    padding: 8px 16px;
+  }
+
+  & ul {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    display: flex;
+  }
+
+  & ul li {
+    margin-right: 8px;
+  }
 `;
