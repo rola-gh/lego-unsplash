@@ -1,4 +1,4 @@
-import  Tag  from "../Tag";
+import  Tag, { ITag }  from "../Tag";
 import {
   Slider,
   SliderContainer,
@@ -7,9 +7,10 @@ import {
   TagsContainer,
 } from "./TagsSlider.style";
 
-const index = () => {
+
+const index: React.FC<{tags: ITag[]}> = ({tags}) => {
   return (
-    <div>
+    <div style={{width: '50%', margin:'auto'}}>
       <SliderContainer>
         <Slider>
           <NextControl>
@@ -39,14 +40,13 @@ const index = () => {
             </button>
           </PrevControl>
           <TagsContainer>
-            <Tag>Nature</Tag>
-            <Tag>Nature</Tag>
-            <Tag>Nature</Tag>
-            <Tag>Nature</Tag>
-            <Tag>Nature</Tag>
-            <Tag>Nature</Tag>
-            <Tag>Nature</Tag>
-            <Tag>Nature</Tag>
+            {
+              tags.map(tag => (
+                <Tag>
+                  {tag.text}
+                </Tag>
+              ))
+            }
           </TagsContainer>
         </Slider>
       </SliderContainer>
