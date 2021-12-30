@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, {ReactNode, useState} from 'react';
 import Button from '../Common/IconButton';
 
-const FavoriteIcon = ({
-                               height = "15px",
-                               width = "15px", color='#767676',
-                                 ...props
-                           }: React.SVGProps<SVGSVGElement>) => {
+interface FavoriteIconProps {
+    height : string;
+    width : string;
+    color:string;
+}
+const FavoriteIcon: React.FC<FavoriteIconProps> = ({height, width, color,
+                          ...props}: React.SVGProps<SVGSVGElement>) => {
     const [like, setLike] = useState(false);
     return (
 	<Button onClick={(e) => setLike(!like)}>
