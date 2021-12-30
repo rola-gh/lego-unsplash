@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ReactNode } from 'react'
-import { Wrapper } from './style'
+import { Wrapper } from './IconButton.style'
 
 interface IconProps {
     onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
