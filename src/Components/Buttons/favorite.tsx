@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../Common/IconButton';
 
-export const FavoriteIcon = ({
+const FavoriteIcon = ({
                                height = "15px",
                                width = "15px", color='#767676',
                                  ...props
