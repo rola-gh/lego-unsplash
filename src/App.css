@@ -1,8 +1,9 @@
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
-.typo-h1 
-{
-  color:pink; 
+
+ul {
+  list-style: none;
 }
