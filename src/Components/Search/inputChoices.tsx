@@ -1,23 +1,28 @@
 import { ChoicesWrapper } from "./search.style";
 
+export interface IChoice {
+  query?: string;
+  priority?: number;
+}
 interface IProps {
-  choices: string[];
+  choices: IChoice[];
   handleClickChoice: Function;
 }
 
 export default function InputChoices({ choices, handleClickChoice }: IProps) {
   return (
     <>
-      {choices.length > 0 && (
+      {console.log(choices)}
+      {choices?.length > 0 && (
         <ChoicesWrapper>
-          {choices.map((item, index) => (
+          {choices?.map((item, index) => (
             <button
               key={index}
               onClick={() => {
                 handleClickChoice(item);
               }}
             >
-              {item}
+              {item.query}
             </button>
           ))}
         </ChoicesWrapper>
