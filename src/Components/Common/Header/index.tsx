@@ -1,6 +1,6 @@
 import { Header } from "./Header.style";
 import { Link } from "react-router-dom";
-import { ReactComponent as Logo } from "../../../Assets/Icons/logo.svg";
+import { Logo } from "../../../Assets/Icons";
 import { useState } from "react";
 import SearchInput from "../../Search/searchInput";
 

@@ -1,10 +1,10 @@
 import Button from '../Common/IconButton';
-import  {ReactComponent as DownloadSvg } from "./../../Assets/Icons/download.svg";
+import { Download } from "./../../Assets/Icons";
 import * as React from "react";
 
 const DownloadIcon = () =>
         <Button onClick={(e) =>console.log('downloadImg', e)}>
-            <DownloadSvg />
+            <Download />
         </Button>
 
 
