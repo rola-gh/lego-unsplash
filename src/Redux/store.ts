@@ -5,12 +5,14 @@ import AllPhotosReducer from "./AllPhotos/Reducers";
 import DownloadPhotosReducer from "./DownloadPhoto/Reducers";
 import SearchPhotosReducer from "./SearchPhotos/Reducers";
 import SinglePhotoReducer from "./SinglePhoto/Reducers";
+import UserInfoReducer from "./UserInfo/Reducers";
 
 const reducers = combineReducers({
   AllPhotos: AllPhotosReducer,
   SinglePhoto: SinglePhotoReducer,
   SearchPhotos: SearchPhotosReducer,
   DownloadPhoto: DownloadPhotosReducer,
+  UserInfo: UserInfoReducer,
 });
 
 declare global {
