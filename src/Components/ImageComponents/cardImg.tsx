@@ -32,7 +32,7 @@ const CardImg: React.FC<CardProps> = ({srcImg,onClick, TagsComp,onMouseEnter, on
                 </WrapperAuthorDownload>
             </CardWithHover>
             }
-            /*TagsComp*/
+            {/*TagsComp*/}
         </Card>
     );
 };
