@@ -25,3 +25,7 @@ export const searchByKeyword =
         });
       });
   };
+export const searchClearRecent =
+  (): ((dispatch: any) => Promise<void>) => async (dispatch: any) => {
+    dispatch({ type: SearchPhotos.SEARCH_CLEAR_RECENT });
+  };

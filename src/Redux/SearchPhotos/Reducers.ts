@@ -37,6 +37,11 @@ export default function SearchPhotosReducer(
         ...state,
         recent: [...state.recent, action.payload].slice(-5),
       };
+    case SearchPhotos.SEARCH_CLEAR_RECENT:
+      return {
+        ...state,
+        recent: [],
+      };
 
     default:
       return state;
