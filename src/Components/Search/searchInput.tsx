@@ -4,35 +4,20 @@ import InputChoices from "./inputChoices";
 import { BoxDown, StyledAutoComplete, Wrapper } from "./search.style";
 import SearchDefaultBox from "./SearchDefaultBox";
 import CloseIcon from "./CloseIcon";
-
-const staticData = {
-  searches: ["one", "two", "three", "four", "five"],
-  topics: ["one", "two", "three", "four", "five"],
-  collections: ["one", "two", "three", "four", "five"],
-};
+import { useNavigate } from "react-router";
+import { IChoice } from "./inputChoices";
 
 interface IProps {
-  data: string[];
-  value: string;
-  onChange: Function;
-  name: string;
-  placeholder?: string;
   borderRadius?: boolean;
 }
 
-function SearchInput({
-  data,
-  onChange,
-  value,
-  placeholder,
-  name,
-  borderRadius,
-}: IProps) {
-  const [state, setstate] = useState<string>(value);
+function SearchInput({ borderRadius }: IProps) {
+  const [state, setstate] = useState<string>("");
   const [openChoices, setOpenChoices] = useState<boolean>(false);
-  const [choices, setChoices] = useState<string[]>([...data]);
+  const [choices, setChoices] = useState<IChoice[]>([]);
 
   const ref = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   // used to change the value of the input with the value that you have clicked on
   const handleClickChoice = (item: string) => {
@@ -40,13 +25,18 @@ function SearchInput({
     setOpenChoices(false);
   };
 
-  // used to filter choices and show them into choices box
+  // used to get choices from API and show them into choices box
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setstate(e.target.value);
-    setChoices(data.filter((item) => item.includes(e.target.value)));
-    onChange(e.target.value);
+    fetch(`https://unsplash.com/nautocomplete/${e.target.value}`)
+      .then((res) => res.json())
+      .then(({ autocomplete }) => {
+        setChoices(autocomplete);
+        console.log(autocomplete);
+      });
   };
 
+  // used To Open choices box when focus on the input
   const handleFocusInput = () => {
     setOpenChoices(true);
   };
@@ -65,63 +55,41 @@ function SearchInput({
 
   document.addEventListener("mousedown", checkIfClickedOutside);
 
+  // handle sybmit navigate you to serch page with the keyworn in params
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    navigate(`/photos/${state}`);
+  };
+
   return (
     <Wrapper ref={ref} borderRadius={borderRadius}>
-      <Icon />
-      <StyledAutoComplete
-        onChange={handleChangeInput}
-        value={state}
-        placeholder={placeholder}
-        onFocus={handleFocusInput}
-        name={name}
-        borderRadius={borderRadius}
-      />
-      {state && <CloseIcon onClick={() => setstate("")} />}
-      <BoxDown openChoices={openChoices}>
-        {state ? (
+      <form onSubmit={handleSubmit}>
+        <Icon />
+        <StyledAutoComplete
+          autoComplete="off"
+          onChange={handleChangeInput}
+          value={state}
+          placeholder="Search free high-resolution photos"
+          onFocus={handleFocusInput}
+          name="autoComplete"
+          borderRadius={borderRadius}
+        />
+        {state && <CloseIcon onClick={() => setstate("")} />}
+      </form>
+      {state ? (
+        <BoxDown openChoices={choices.length !== 0 && openChoices}>
           <InputChoices
             choices={choices}
             handleClickChoice={handleClickChoice}
           />
-        ) : (
-          <SearchDefaultBox
-            searches={staticData.searches}
-            topics={staticData.topics}
-            collections={staticData.collections}
-            handleClickChoice={handleClickChoice}
-          />
-        )}
-      </BoxDown>
+        </BoxDown>
+      ) : (
+        <BoxDown openChoices={openChoices}>
+          <SearchDefaultBox handleClickChoice={handleClickChoice} />
+        </BoxDown>
+      )}
     </Wrapper>
   );
 }
 
 export default memo(SearchInput);
-
-// Demo Of using Component
-
-// const [inputChange, setInputChange] = useState<string>("");
-// const handleChange = (text: string) => {
-//   setInputChange(text);
-// };
-
-{
-  /* <SearchInput
-placeholder="Auto Complete"
-onChange={handleChange}
-value={inputChange}
-name="autoComplete"
-data={["one", "two", "three", "four"]}
-/> */
-}
-
-{
-  /* <SearchInput
-placeholder="Auto Complete"
-onChange={handleChange}
-value={inputChange}
-name="autoComplete"
-borderRadius={true}
-data={["one", "two", "three", "four"]}
-/> */
-}

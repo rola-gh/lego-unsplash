@@ -7,7 +7,7 @@ interface IStyledWrapper {
 export const Wrapper = styled.div<IStyledWrapper>`
   width: 100%;
   position: relative;
-  & > Button {
+  & form > Button {
     background: none;
     border: none;
     position: absolute;
@@ -28,17 +28,19 @@ interface IStyledAutoComplete {
 
 export const StyledAutoComplete = styled.input<IStyledAutoComplete>`
   font-size: 1rem;
-  border: 2px solid #d1d1d1;
-  transition: all 0.4s;
+  transition: all 0.1s;
   width: 100%;
   padding: 10px 40px;
   background-color: #eee;
+  border: ${(props) =>
+    props.borderRadius ? "none;margin:1px" : "2px solid #d1d1d1;"};
   border-radius: ${(props) =>
     props.borderRadius ? "24px;height: 40x;" : "4px;height: 54px;"};
   &:focus {
     outline: none;
     background-color: #fff;
-    box-shadow: ${(props) => (props.borderRadius ? ";" : "0 0 0 5px #0003;")};
+    box-shadow: ${(props) =>
+      props.borderRadius ? ";border:1px solid #d1d1d1;" : "0 0 0 5px #0003;"};
   }
 `;
 
@@ -59,6 +61,17 @@ export const BoxDown = styled.div<IBoxWrapperProps>`
   padding-top: 8px;
   padding-bottom: 8px;
   z-index: 1;
+  color: #000;
+
+  & button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.7;
+    &:hover {
+      opacity: 1;
+    }
+  }
 `;
 
 export const ChoicesWrapper = styled.div`
