@@ -7,8 +7,11 @@ import {
   TagsContainer,
 } from "./TagsSlider.style";
 
+interface ISlider {
+  tags: ITag[]
+}
 
-const index: React.FC<{tags: ITag[]}> = ({tags}) => {
+const Index: React.FC<ISlider> = ({tags}) => {
   return (
     <div style={{width: '50%', margin:'auto'}}>
       <SliderContainer>
@@ -42,7 +45,7 @@ const index: React.FC<{tags: ITag[]}> = ({tags}) => {
           <TagsContainer>
             {
               tags.map(tag => (
-                <Tag>
+                <Tag text={tag.text}>
                   {tag.text}
                 </Tag>
               ))
@@ -54,4 +57,4 @@ const index: React.FC<{tags: ITag[]}> = ({tags}) => {
   );
 };
 
-export default index;
+export default Index;

@@ -1,16 +1,15 @@
 import styled from 'styled-components';
 
-let Sun:any, Moon:any;
-// interface themeToggle {
-//   toggleTheme: () => void |string,
-//   theme:string
-// }
-Sun = Moon = styled.svg`
-  position: absolute;
-  top: 2rem;
-  right: 4rem;
-  transition: all .5s linear;
-`;
+
+const Svg = styled.svg`
+position: absolute;
+top: 2rem;
+right: 4rem;
+transition: all .5s linear;
+`
+const Sun = styled.svg(Svg);
+const Moon = styled.svg(Svg);
+
 export const Toggle = ({ theme, toggleTheme }:any ) => {
   return (
     <div onClick={toggleTheme}>
