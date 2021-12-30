@@ -7,7 +7,7 @@ export interface initialState {
   photo: IPhoto;
 }
 
-export default function SinglePhotoReducer(
+export default function UserInfoReducer(
   state: initialState = { isLoading: false, error: "", photo: {} as IPhoto },
   action: any // will be changed
 ) {
