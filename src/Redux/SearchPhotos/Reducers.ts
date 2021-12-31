@@ -1,11 +1,12 @@
 import { Basic } from "unsplash-js/dist/methods/photos/types";
+import { IPhoto } from "../../@Types/photo";
 import { SearchPhotosActionsType } from "../../@Types/types";
 import { SearchPhotos } from "./Constants";
 
 export interface initialState {
   isLoading: boolean;
   error: string;
-  photos: Basic[];
+  photos: IPhoto[];
   recent: string[];
 }
 

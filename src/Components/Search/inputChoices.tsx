@@ -18,7 +18,7 @@ export default function InputChoices({ choices, handleClickChoice }: IProps) {
             <button
               key={index}
               onClick={() => {
-                handleClickChoice(item);
+                handleClickChoice(item.query);
               }}
             >
               {item.query}
