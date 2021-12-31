@@ -59,6 +59,7 @@ function SearchInput({ borderRadius }: IProps) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     navigate(`/photos/${state}`);
+    setOpenChoices(false);
   };
 
   return (
