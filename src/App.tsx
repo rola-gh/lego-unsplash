@@ -7,7 +7,7 @@ import { useDarkMode } from './Utils/Theme/styles/useDarkMode';
 import { lightTheme, darkTheme} from './Utils/Theme/theme'
 
 function App() {
-  const [ theme , toggleTheme ] = useDarkMode();
+  const [ theme, toggleTheme ] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
   return (
     <div className="App">
