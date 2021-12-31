@@ -1,22 +1,21 @@
 import React from 'react';
+import {Wrapper, AuthorImg, AuthorName} from "./Author.style";
 
 interface AuthorProps {
     authorImg: string;
     authorName : string;
-    authorAvailable:string;
 }
-const Author: React.FC<AuthorProps> = ({authorImg, authorName, authorAvailable,
+const Author: React.FC<AuthorProps> = ({authorImg, authorName,
                                                        ...props}) => {
     return (
-        <div>
-            <div>
+        <Wrapper>
+            <AuthorImg>
                 <img src={authorImg}/>
-            </div>
-            <div>
-                <h5>{authorName}</h5>
-                {/*<p>{authorAvailable}<span>T</span></p>*/}
-            </div>
-        </div>
+            </AuthorImg>
+            <AuthorName>
+                <p>{authorName}</p>
+            </AuthorName>
+        </Wrapper>
     )};
 
 export default Author;

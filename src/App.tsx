@@ -1,7 +1,7 @@
-
 import Header from './Components/Common/Header';
 import {Routes, Route} from 'react-router-dom'
 import Home from './Views/Home'
+import SingleImagePage from './Views/Details';
 import './App.css';
 import Typography from './Components/Common/typography/Typography'
 import  Avatar from './Components/Common/avatar/Avatar'
