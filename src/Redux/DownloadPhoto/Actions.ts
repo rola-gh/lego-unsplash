@@ -1,9 +1,13 @@
 import { DownloadPhotos } from "./Constants";
 import { api } from "../../API";
+import { Dispatch } from "react";
+import { DownloadPhotosActionsType } from "../../@Types/types";
 
 export const downloadPhoto =
-  (photoId: string): ((dispatch: any) => Promise<void>) =>
-  async (dispatch: any) => {
+  (
+    photoId: string
+  ): ((dispatch: Dispatch<DownloadPhotosActionsType>) => Promise<void>) =>
+  async (dispatch: Dispatch<DownloadPhotosActionsType>) => {
     dispatch({ type: DownloadPhotos.DOWNLOAD_PHOTO_START });
     api.photos
       .get({ photoId: photoId })

@@ -1,29 +1,29 @@
-import { IPhoto } from "../../@Types/photo";
+import { Basic } from "unsplash-js/dist/methods/photos/types";
+import { SearchPhotosActionsType } from "../../@Types/types";
 import { SearchPhotos } from "./Constants";
 
 export interface initialState {
   isLoading: boolean;
   error: string;
-  photos: IPhoto[];
+  photos: Basic[];
   recent: string[];
 }
 
 export default function SearchPhotosReducer(
   state: initialState = { isLoading: false, error: "", photos: [], recent: [] },
-  action: any // will be changed
+  action: SearchPhotosActionsType
 ) {
   switch (action.type) {
     case SearchPhotos.SEARCH_BY_KEYWORD_START:
       return {
         ...state,
-        photos: action.payload,
         isLoading: true,
         error: "",
       };
     case SearchPhotos.SEARCH_BY_KEYWORD_SUCCESS:
       return {
         ...state,
-        photos: action.payload,
+        photos: [...state.photos, action.payload],
         isLoading: false,
       };
     case SearchPhotos.SEARCH_BY_KEYWORD_FAIL:
@@ -40,7 +40,7 @@ export default function SearchPhotosReducer(
     case SearchPhotos.SEARCH_CLEAR_RECENT:
       return {
         ...state,
-        recent: [],
+        recent: [] as string[],
       };
 
     default:

@@ -12,7 +12,6 @@ interface IProps {
 export default function InputChoices({ choices, handleClickChoice }: IProps) {
   return (
     <>
-      {console.log(choices)}
       {choices?.length > 0 && (
         <ChoicesWrapper>
           {choices?.map((item, index) => (

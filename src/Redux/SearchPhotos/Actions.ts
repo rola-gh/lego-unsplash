@@ -1,9 +1,17 @@
 import { SearchPhotos } from "./Constants";
 import { api } from "../../API";
+import { Dispatch } from "react";
+import {
+  ISearchClearRecent,
+  SearchPhotosActionsType,
+} from "../../@Types/types";
 
 export const searchByKeyword =
-  (keyWord: string, page?: number): ((dispatch: any) => Promise<void>) =>
-  async (dispatch: any) => {
+  (
+    keyWord: string,
+    page?: number
+  ): ((dispatch: Dispatch<SearchPhotosActionsType>) => Promise<void>) =>
+  async (dispatch: Dispatch<SearchPhotosActionsType>) => {
     dispatch({ type: SearchPhotos.SEARCH_BY_KEYWORD_START });
     api.search
       .getPhotos({ query: keyWord, page: page && 1, perPage: 10 })
@@ -11,7 +19,6 @@ export const searchByKeyword =
         dispatch({
           type: SearchPhotos.SEARCH_BY_KEYWORD_SUCCESS,
           payload: result.response?.results,
-          recent: keyWord,
         });
         dispatch({
           type: SearchPhotos.SEARCH_ADD_RECENT,
@@ -26,6 +33,7 @@ export const searchByKeyword =
       });
   };
 export const searchClearRecent =
-  (): ((dispatch: any) => Promise<void>) => async (dispatch: any) => {
+  (): ((dispatch: Dispatch<ISearchClearRecent>) => Promise<void>) =>
+  async (dispatch: Dispatch<ISearchClearRecent>) => {
     dispatch({ type: SearchPhotos.SEARCH_CLEAR_RECENT });
   };

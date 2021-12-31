@@ -1,4 +1,4 @@
-export enum SinglePhoto {
+export enum UserInfo {
   USER_INFO_START = "USER_INFO_START",
   USER_INFO_SUCCESS = "USER_INFO_SUCCESS",
   USER_INFO_FAIL = "USER_INFO_FAIL",

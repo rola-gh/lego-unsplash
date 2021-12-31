@@ -1,21 +1,25 @@
-import { SinglePhoto } from "./Constants";
+import { UserInfo } from "./Constants";
 import { api } from "../../API";
+import { Dispatch } from "react";
+import { UserInfoActionsType } from "../../@Types/types";
 
 export const getSinglePhoto =
-  (username: string): ((dispatch: any) => Promise<void>) =>
-  async (dispatch: any) => {
-    dispatch({ type: SinglePhoto.USER_INFO_START });
+  (
+    username: string
+  ): ((dispatch: Dispatch<UserInfoActionsType>) => Promise<void>) =>
+  async (dispatch: Dispatch<UserInfoActionsType>) => {
+    dispatch({ type: UserInfo.USER_INFO_START });
     api.users
       .get({ username: username })
       .then((result) => {
         dispatch({
-          type: SinglePhoto.USER_INFO_SUCCESS,
+          type: UserInfo.USER_INFO_SUCCESS,
           payload: result.response,
         });
       })
       .catch((error) => {
         dispatch({
-          type: SinglePhoto.USER_INFO_FAIL,
+          type: UserInfo.USER_INFO_FAIL,
           payload: error?.message || "something went wrong!",
         });
       });

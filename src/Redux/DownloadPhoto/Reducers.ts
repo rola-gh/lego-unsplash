@@ -1,3 +1,4 @@
+import { DownloadPhotosActionsType } from "../../@Types/types";
 import { DownloadPhotos } from "./Constants";
 
 export interface initialState {
@@ -7,13 +8,12 @@ export interface initialState {
 
 export default function DownloadPhotosReducer(
   state: initialState = { isLoading: false, error: "" },
-  action: any // will be changed
+  action: DownloadPhotosActionsType
 ) {
   switch (action.type) {
     case DownloadPhotos.DOWNLOAD_PHOTO_START:
       return {
         ...state,
-        photos: action.payload,
         isLoading: true,
         error: "",
       };
