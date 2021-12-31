@@ -12,7 +12,8 @@ export const Card = styled.div<ICard>`
         position: absolute;
         bottom: 0;
         background: rgb(0, 0, 0);
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0,0,0,0.45);
+        //background-color: rgba(108,108,108,0.31);
         color: #f1f1f1;
         width: 100%;
         height:100%;
@@ -31,7 +32,8 @@ export const Card = styled.div<ICard>`
         padding: 0;
         margin: 0;
         & > img {
-            max-width: 416px;
+            //max-width: 416px;
+            width: 100%;
         }
     }
 
