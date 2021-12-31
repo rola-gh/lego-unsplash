@@ -19,7 +19,7 @@ const Index = () => {
   return (
     <>
       <SearchContainer />
-      {/* {photos && <ImagesList photos={photos} />} */}
+      {photos && <ImagesList photos={photos} />}
     </>
   );
 };
