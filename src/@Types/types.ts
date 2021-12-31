@@ -12,7 +12,7 @@ export interface IGetAllPhotosStart {
 }
 export interface IGetAllPhotosSucces {
   type: AllPhotos.GET_ALL_PHOTOS_SUCCESS;
-  payload: BasicPhoto[] | undefined;
+  payload: any | undefined;
 }
 export interface IGetAllPhotosFail {
   type: AllPhotos.GET_ALL_PHOTOS_FAIL;
@@ -29,7 +29,7 @@ export interface ISinglePhotoStart {
 }
 export interface ISinglePhotoSucces {
   type: SinglePhoto.GET_SINGLE_PHOTO_SUCCESS;
-  payload: BasicPhoto | undefined;
+  payload: any | undefined;
 }
 export interface ISinglePhotoFail {
   type: SinglePhoto.GET_SINGLE_PHOTO_FAIL;
@@ -40,13 +40,13 @@ export type SinglePhotoActionsType =
   | ISinglePhotoSucces
   | ISinglePhotoFail;
 
-// Single Photo Types
+// Search Photo Types
 export interface ISearchPhotosStart {
   type: SearchPhotos.SEARCH_BY_KEYWORD_START;
 }
 export interface ISearchPhotosSucces {
   type: SearchPhotos.SEARCH_BY_KEYWORD_SUCCESS;
-  payload: BasicPhoto[] | undefined;
+  payload: any | undefined;
 }
 export interface ISearchPhotosFail {
   type: SearchPhotos.SEARCH_BY_KEYWORD_FAIL;
@@ -54,11 +54,11 @@ export interface ISearchPhotosFail {
 }
 export interface ISearchAddRecent {
   type: SearchPhotos.SEARCH_ADD_RECENT;
-  payload: string;
+  payload: any;
 }
 export interface ISearchClearRecent {
   type: SearchPhotos.SEARCH_CLEAR_RECENT;
-  payload?: string;
+  payload?: any;
 }
 export type SearchPhotosActionsType =
   | ISearchAddRecent
@@ -73,7 +73,7 @@ export interface IUserInfoStart {
 }
 export interface IUserInfoSucces {
   type: UserInfo.USER_INFO_SUCCESS;
-  payload: BasicUser | undefined;
+  payload: any | undefined;
 }
 export interface IUserInfoFail {
   type: UserInfo.USER_INFO_FAIL;

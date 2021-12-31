@@ -21,7 +21,7 @@ export default function SearchDefaultBox({ handleClickChoice }: IProps) {
 
   return (
     <SearchBox>
-      {/* {recent?.length !== 0 && (
+      {recent?.length !== 0 && (
         <div>
           <span>Recent Searches</span> . <button>Clear</button>
           <ul>
@@ -32,7 +32,7 @@ export default function SearchDefaultBox({ handleClickChoice }: IProps) {
             ))}
           </ul>
         </div>
-      )} */}
+      )}
       <div>
         <span>Trending Searches</span>
         <ul>
