@@ -11,7 +11,7 @@ const Index = () => {
     const { AllPhotos:{photos} } = useSelector((state: AppState) => state)
 
     useEffect(() => {
-        dispatch(getAllPhotos(1))
+        dispatch(getAllPhotos(2))
     }, [dispatch])
 
     return (

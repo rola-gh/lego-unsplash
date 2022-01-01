@@ -7,7 +7,7 @@ interface IProps{
 }
 
 const Index: React.FC<IProps> = ({photos}) => {
-    console.log(photos);
+    // console.log(photos);
     return (
         <Container>
             <List>

@@ -11,9 +11,9 @@ const variantMapping:any = {
 }
 export interface Prop {
   color: string, 
-  children: string | JSX.Element,
+  children: string | JSX.Element|JSX.Element[] |undefined,
   variant?: string, 
-  fontSize:string| undefined
+  fontSize?:string| undefined
 }
 const Typography: React.FC<Prop> = ({ variant, children,color,fontSize }:Prop) => {
   const Component = variant ? variantMapping[variant] : "p"

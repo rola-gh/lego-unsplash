@@ -1,31 +1,28 @@
-
 import Header from './Components/Common/Header';
 import {Routes, Route} from 'react-router-dom'
 import Home from './Views/Home'
+import './App.css';
+import { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { Toggle } from './Utils/Theme/Toggle';
-import { useDarkMode } from './Utils/Theme/Styles/useDarkMode';
-import { GlobalStyles,  } from './Utils/Theme/Styles/globalStyle';
+import { GlobalStyles } from './Utils/Theme/Styles/globalStyle';
 import { lightTheme, darkTheme} from './Utils/Theme/theme'
 import './App.css';
-import{themeToggle} from '././Utils/Theme/Toggle'
 import SearchResult from './Views/SearchResult/index'
-
-// import Typography from './Components/Common/typography/Typography'
-// import  Avatar from './Components/Common/avatar/Avatar'
-// import { ThemeProvider } from 'styled-components';
-// import { Toggle } from './Utils/Theme/styles/toggle';
-// import { useDarkMode } from './Utils/Theme/styles/useDarkMode';
-// import { GlobalStyles,  } from './Utils/Theme/styles/globalStyle';
-// import { lightTheme, darkTheme} from './Utils/Theme/theme'
-
 function App() {
-  const [ theme , toggleTheme ] = useDarkMode();
-  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+    const [theme, setTheme] = useState('light');
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  }
+
   return (
     <div className="App">
-    <ThemeProvider theme={themeMode}>
-      <Header />
+    <ThemeProvider  theme={theme === 'light' ? lightTheme : darkTheme} >
+        <Header  toggleTheme={ toggleTheme} theme = {theme}   />
+          <GlobalStyles />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/search/:keyword' element={<SearchResult/>}/>
@@ -36,12 +33,4 @@ function App() {
   );
 }
 
-/**
-        <GlobalStyles />
-        <Toggle theme={theme} toggleTheme={toggleTheme} />
-      <Avatar src="https://images.unsplash.com/photo-1640753138783-feb605ed090b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=100&q=60" title="eman" />
-      <Typography variant="h2" color="pink" fontSize='15px'> Hello </Typography>
-        <Typography variant="h4" color ="blue"  fontSize='15px'> Hello </Typography>
-
-*/
 export default App;

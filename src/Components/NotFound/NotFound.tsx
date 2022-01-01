@@ -1,17 +1,14 @@
 import { Img ,P,Wrong} from './NotFound.style'
-// import { ReactComponent as Logo } from '../../Assets/Icons/logo.svg'
-
+import { Logo } from '../../Assets/Icons'
 export default function NotFound() {
 
   return (
-    <div>
+    <>
       <Img src="https://unsplash.com/a/img/empty-states/photos.png" alt="not found" />
       <Wrong>
-        {/* <Logo /> */}
- 
+        <Logo />
       </Wrong>
-       <P> some thing went wrong </P>
-     
-    </div>
+       <P> Loading, Take a moment please ...  </P>
+    </>
   )
 }

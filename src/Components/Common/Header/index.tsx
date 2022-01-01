@@ -1,10 +1,11 @@
 import { Header } from "./Header.style";
 import { Link } from "react-router-dom";
 import { Logo } from "../../../Assets/Icons";
-import { useState } from "react";
 import SearchInput from "../../Search/searchInput";
+import { Toggle } from '../../../Utils/Theme/Toggle';
+import { FC } from "react";
 
-const Index = () => {
+const Index: FC<themeProp> = ({toggleTheme,theme }) => {
   return (
     <Header>
       <Link to="/">
@@ -14,6 +15,7 @@ const Index = () => {
         <SearchInput borderRadius={true} />
       </div>
       {/* Theme Switch */}
+     <Toggle theme={theme} toggleTheme={toggleTheme}  />
     </Header>
   );
 };

@@ -4,26 +4,27 @@ import { useParams } from 'react-router'
 import {useDispatch,useSelector} from 'react-redux'
 import {searchByKeyword} from '../../Redux/SearchPhotos/Actions'
 import { AppState } from '../../Redux/store'
-import {useEffect} from 'react'
+import { useEffect } from 'react'
+import ImagesList from '../../Components/ImageComponents/ImagesList';
+
 export default function SearchResult() {
   const dispatch = useDispatch()
   const { keyword } = useParams()
-  const { SearchPhotos: {photos,error, isLoading }} = useSelector((state: AppState) => state);
-  console.log(keyword,photos)
+  const { SearchPhotos: {photos, isLoading }} = useSelector((state: AppState) => state);
 
-  const getWord = () => {
-    if (keyword) {
-      dispatch(searchByKeyword(keyword))
-    }
-  }
+
   useEffect(() => {
-  getWord()
-},[keyword])
+     if (keyword) {
+      dispatch(searchByKeyword(keyword,2))
+    }
+},[])
   return (
-    <div>
-      <Typography variant='h2' color="pink"> Results for {keyword} </Typography>
-      {photos.length ===0 && isLoading ?  <NotFound />:<div> There is data </div> }
-      <NotFound />
-    </div>
+    <>
+      <Typography variant='h2' color="black" >
+       <span> Results for  {keyword}  </span> 
+      </Typography>
+      {isLoading && <NotFound /> }
+     { photos && <ImagesList photos = {photos} />}
+    </>
   )
 }
