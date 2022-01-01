@@ -3,7 +3,7 @@ import { DownloadPhotos } from "./Constants";
 
 export interface initialState {
   isLoading: boolean;
-  error: string;
+  error: any;
 }
 
 export default function DownloadPhotosReducer(

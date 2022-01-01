@@ -4,12 +4,12 @@ import { UserInfo } from "./Constants";
 
 export interface initialState {
   isLoading: boolean;
-  error: string;
-  photo: Basic;
+  error: any;
+  user: Basic;
 }
 
 export default function UserInfoReducer(
-  state: initialState = { isLoading: false, error: "", photo: {} as Basic },
+  state: initialState = { isLoading: false, error: "", user: {} as Basic },
   action: UserInfoActionsType
 ) {
   switch (action.type) {
@@ -22,7 +22,7 @@ export default function UserInfoReducer(
     case UserInfo.USER_INFO_SUCCESS:
       return {
         ...state,
-        photo: action.payload,
+        user: action.payload,
         isLoading: false,
       };
     case UserInfo.USER_INFO_FAIL:

@@ -13,7 +13,9 @@ export const getAllPhotos =
       .list({ page: page, perPage: 10 })
       .then((result) => {
         dispatch({
-          type: AllPhotos.GET_ALL_PHOTOS_SUCCESS,
+          type: page
+            ? AllPhotos.GET_ALL_PHOTOS_SUCCESS
+            : AllPhotos.GET_ALL_PHOTOS_NEW_SUCCESS,
           payload: result.response?.results,
         });
       })

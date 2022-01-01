@@ -17,13 +17,16 @@ export const searchByKeyword =
       .getPhotos({ query: keyWord, page: page && 1, perPage: 10 })
       .then((result) => {
         dispatch({
-          type: SearchPhotos.SEARCH_BY_KEYWORD_SUCCESS,
+          type: page
+            ? SearchPhotos.SEARCH_BY_KEYWORD_SUCCESS
+            : SearchPhotos.SEARCH_BY_KEYWORD_NEW_SUCCESS,
           payload: result.response?.results,
         });
-        dispatch({
-          type: SearchPhotos.SEARCH_ADD_RECENT,
-          payload: keyWord,
-        });
+        page ||
+          dispatch({
+            type: SearchPhotos.SEARCH_ADD_RECENT,
+            payload: keyWord,
+          });
       })
       .catch((error) => {
         dispatch({
@@ -32,6 +35,7 @@ export const searchByKeyword =
         });
       });
   };
+
 export const searchClearRecent =
   (): ((dispatch: Dispatch<ISearchClearRecent>) => Promise<void>) =>
   async (dispatch: Dispatch<ISearchClearRecent>) => {

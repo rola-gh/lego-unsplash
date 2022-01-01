@@ -1,16 +1,15 @@
 import { Basic } from "unsplash-js/dist/methods/photos/types";
-import { IPhoto } from "../../@Types/photo";
 import { SinglePhotoActionsType } from "../../@Types/types";
 import { SinglePhoto } from "./Constants";
 
 export interface initialState {
   isLoading: boolean;
-  error: string;
-  photo: IPhoto;
+  error: any;
+  photo: Basic;
 }
 
 export default function SinglePhotoReducer(
-  state: initialState = { isLoading: false, error: "", photo: {} as IPhoto },
+  state: initialState = { isLoading: false, error: "", photo: {} as Basic },
   action: SinglePhotoActionsType
 ) {
   switch (action.type) {

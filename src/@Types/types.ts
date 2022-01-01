@@ -1,5 +1,5 @@
-import { Basic as BasicPhoto } from "unsplash-js/dist/methods/photos/types";
-import { Basic as BasicUser } from "unsplash-js/dist/methods/users/types";
+// import { Basic as BasicPhoto } from "unsplash-js/dist/methods/photos/types";
+// import { Basic as BasicUser } from "unsplash-js/dist/methods/users/types";
 import { AllPhotos } from "../Redux/AllPhotos/Constants";
 import { SinglePhoto } from "../Redux/SinglePhoto/Constants";
 import { SearchPhotos } from "../Redux/SearchPhotos/Constants";
@@ -11,8 +11,8 @@ export interface IGetAllPhotosStart {
   type: AllPhotos.GET_ALL_PHOTOS_START;
 }
 export interface IGetAllPhotosSucces {
-  type: AllPhotos.GET_ALL_PHOTOS_SUCCESS;
-  payload: any | undefined;
+  type: AllPhotos.GET_ALL_PHOTOS_SUCCESS | AllPhotos.GET_ALL_PHOTOS_NEW_SUCCESS;
+  payload: any;
 }
 export interface IGetAllPhotosFail {
   type: AllPhotos.GET_ALL_PHOTOS_FAIL;
@@ -29,7 +29,7 @@ export interface ISinglePhotoStart {
 }
 export interface ISinglePhotoSucces {
   type: SinglePhoto.GET_SINGLE_PHOTO_SUCCESS;
-  payload: any | undefined;
+  payload: any;
 }
 export interface ISinglePhotoFail {
   type: SinglePhoto.GET_SINGLE_PHOTO_FAIL;
@@ -45,8 +45,10 @@ export interface ISearchPhotosStart {
   type: SearchPhotos.SEARCH_BY_KEYWORD_START;
 }
 export interface ISearchPhotosSucces {
-  type: SearchPhotos.SEARCH_BY_KEYWORD_SUCCESS;
-  payload: any | undefined;
+  type:
+    | SearchPhotos.SEARCH_BY_KEYWORD_SUCCESS
+    | SearchPhotos.SEARCH_BY_KEYWORD_NEW_SUCCESS;
+  payload: any;
 }
 export interface ISearchPhotosFail {
   type: SearchPhotos.SEARCH_BY_KEYWORD_FAIL;
