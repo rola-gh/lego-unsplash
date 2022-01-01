@@ -12,7 +12,7 @@ const Index:React.FC<{photo: IPhoto}> = ({photo}) => {
     return (
         <Card bg={photo?.color || ''} onClick={() => navigate(`/photo/${photo.id}`)}>
             <Link to={`/photo/${photo.id}`}>
-                <img src={photo.urls.full} alt={photo.alt_description} loading='lazy'/>
+                <img src={photo.urls.small} alt={photo.alt_description} loading='lazy'/>
             </Link>
             <div className='overlay'>
                 <CardWithHover>
@@ -21,7 +21,7 @@ const Index:React.FC<{photo: IPhoto}> = ({photo}) => {
                     </FavIcon>
                     <WrapperAuthorDownload>
                         <Author authorName={photo.user.name}  authorImg={photo.user.profile_image.small}/>
-                        <DownloadIcon/>
+                        <DownloadIcon   />
                     </WrapperAuthorDownload>
                 </CardWithHover>
             </div>
