@@ -1,4 +1,5 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { searchClearRecent } from "../../Redux/SearchPhotos/Actions";
 import { AppState } from "../../Redux/store";
 import Tag from "../Common/Tag";
 import { SearchBox } from "./search.style";
@@ -14,6 +15,8 @@ const staticData = {
 };
 
 export default function SearchDefaultBox({ handleClickChoice }: IProps) {
+  const dispatch = useDispatch();
+
   // get the recent search from redux
   const {
     SearchPhotos: { recent },
@@ -23,7 +26,8 @@ export default function SearchDefaultBox({ handleClickChoice }: IProps) {
     <SearchBox>
       {recent?.length !== 0 && (
         <div>
-          <span>Recent Searches</span> . <button>Clear</button>
+          <span>Recent Searches</span> .{" "}
+          <button onClick={() => dispatch(searchClearRecent())}>Clear</button>
           <ul>
             {recent?.map((item) => (
               <li key={item} onClick={() => handleClickChoice(item)}>

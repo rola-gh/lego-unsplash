@@ -32,7 +32,6 @@ function SearchInput({ borderRadius }: IProps) {
       .then((res) => res.json())
       .then(({ autocomplete }) => {
         setChoices(autocomplete);
-        console.log(autocomplete);
       });
   };
 

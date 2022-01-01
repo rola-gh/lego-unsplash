@@ -1,5 +1,4 @@
 import { combineReducers, createStore, applyMiddleware, compose } from "redux";
-
 import thunk from "redux-thunk";
 import AllPhotosReducer from "./AllPhotos/Reducers";
 import DownloadPhotosReducer from "./DownloadPhoto/Reducers";

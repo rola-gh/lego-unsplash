@@ -1,9 +1,13 @@
 import { SinglePhoto } from "./Constants";
 import { api } from "../../API";
+import { Dispatch } from "react";
+import { SinglePhotoActionsType } from "../../@Types/types";
 
 export const getSinglePhoto =
-  (photoId: string): ((dispatch: any) => Promise<void>) =>
-  async (dispatch: any) => {
+  (
+    photoId: string
+  ): ((dispatch: Dispatch<SinglePhotoActionsType>) => Promise<void>) =>
+  async (dispatch: Dispatch<SinglePhotoActionsType>) => {
     dispatch({ type: SinglePhoto.GET_SINGLE_PHOTO_START });
     api.photos
       .get({ photoId: photoId })

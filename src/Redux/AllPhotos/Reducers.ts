@@ -1,25 +1,31 @@
-import { IPhoto } from "../../@Types/photo";
+import { Basic } from "unsplash-js/dist/methods/photos/types";
+import { AllPhotosActionsType } from "../../@Types/types";
 import { AllPhotos } from "./Constants";
 
 export interface initialState {
   isLoading: boolean;
-  error: string;
-  photos: IPhoto[];
+  error: any;
+  photos: Basic[];
 }
 
 export default function AllPhotosReducer(
   state: initialState = { isLoading: false, error: "", photos: [] },
-  action: any // will be changed
+  action: AllPhotosActionsType
 ) {
   switch (action.type) {
     case AllPhotos.GET_ALL_PHOTOS_START:
       return {
         ...state,
-        photos: action.payload,
         isLoading: true,
         error: "",
       };
     case AllPhotos.GET_ALL_PHOTOS_SUCCESS:
+      return {
+        ...state,
+        photos: [...state.photos].concat(action.payload),
+        isLoading: false,
+      };
+    case AllPhotos.GET_ALL_PHOTOS_NEW_SUCCESS:
       return {
         ...state,
         photos: action.payload,
