@@ -1,6 +1,7 @@
 import Header from './Components/Common/Header';
 import {Routes, Route} from 'react-router-dom'
 import Home from './Views/Home'
+import SingleImagePage from './Views/Details';
 import './App.css';
 import { ThemeProvider } from 'styled-components';
 import { useDarkMode } from './Utils/Theme/styles/useDarkMode';

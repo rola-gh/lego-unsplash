@@ -5,12 +5,11 @@ interface AuthorProps {
     authorImg: string;
     authorName : string;
 }
-const Author: React.FC<AuthorProps> = ({authorImg, authorName,
-                                                       ...props}) => {
+const Author: React.FC<AuthorProps> = ({authorImg, authorName}) => {
     return (
         <Wrapper>
             <AuthorImg>
-                <img src={authorImg}/>
+                <img src={authorImg} alt={authorName}/>
             </AuthorImg>
             <AuthorName>
                 <p>{authorName}</p>

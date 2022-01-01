@@ -39,7 +39,6 @@ export const Control = styled.div`
     z-index: 2;
     cursor: pointer;
 `
-
 export const NextControl = styled(Control)`
     right: 0;
     & > button {
