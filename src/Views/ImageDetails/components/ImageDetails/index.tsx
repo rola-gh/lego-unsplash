@@ -3,7 +3,7 @@ import ImageActions from "./ImageActions";
 import ImageInfo from "./ImageInfo";
 import {ImgDetails} from "./styles";
 
-function ImageDeatails() {
+function ImageDetails() {
   return (
     <ImgDetails>
       <ImageActions />
@@ -12,5 +12,5 @@ function ImageDeatails() {
   )
 }
 
-export default ImageDeatails
+export default ImageDetails
 

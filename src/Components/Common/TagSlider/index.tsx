@@ -8,42 +8,46 @@ import {
 } from "./TagsSlider.style";
 import NextButton from "./NextButton";
 import PrevButton from "./PrevButton";
-import { useCallback, useEffect, useRef } from "react";
+import {useCallback, useEffect, useMemo, useRef } from "react";
 
 interface ISlider {
   tags: ITag[];
 }
 
 const Index: React.FC<ISlider> = ({ tags }) => {
+  const TagsRef = useRef<HTMLDivElement>(null);
 
-  const TagsRef = useRef(null);
   const handleForwardBtnClick = useCallback(() => {
-    // updateActiveSlideIndex(getNextSlideIndex("forward"), "forward");
-  }, []
-  //[updateActiveSlideIndex, getNextSlideIndex]
-  );
-
+    const div = TagsRef.current;
+    //@ts-ignore
+    if(div){
+      div.scrollLeft += 200;
+    }
+  }, []);
+  
   const handleBackwardBtnClick = useCallback(() => {
-    // updateActiveSlideIndex(getNextSlideIndex("backward"), "backward");
-  }, []
-  // [updateActiveSlideIndex, getNextSlideIndex]
-  );
-
-
-  useEffect(() => {
-    console.log(TagsRef.current);
-  }, [])
+    const div = TagsRef.current;
+    if(div){
+      div.scrollLeft -= 200;
+    }
+  }, []);
 
   return (
     <div style={{ width: "50%", margin: "auto" }}>
       <SliderContainer>
         <Slider>
-          <NextControl>
-            <NextButton onClick={handleForwardBtnClick} />
-          </NextControl>
-          <PrevControl>
-            <PrevButton onClick={handleBackwardBtnClick} />
-          </PrevControl>
+          {
+            tags.length > 4 && 
+            <>
+                  <NextControl>
+                    <NextButton onClick={handleForwardBtnClick} />
+                  </NextControl>
+              
+                  <PrevControl>
+                    <PrevButton onClick={handleBackwardBtnClick} />
+                  </PrevControl>
+            </>
+          }
           <TagsContainer ref={TagsRef}>
             {tags.map((tag) => (
               <Tag
@@ -51,10 +55,11 @@ const Index: React.FC<ISlider> = ({ tags }) => {
                 key={tag.text}
                 style={{
                   backgroundColor: "#fff",
-                  color: "#ccc",
+                  color: "#767676",
                   border: "1px solid #d1d1d1",
-                  maxWidth:'145px',
+                  width:'145px',
                   overflow: 'hidden',
+                  justifyContent:'center',
                 }}
               >
                 {tag.text}

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import { getAllPhotos } from '../../Redux/AllPhotos/Actions'
 import SearchContainer from '../../Components/Common/SearchContainer';
+import TagSlider from '../../Components/Common/TagSlider';
 import ImagesList from '../../Components/ImageComponents/ImagesList';
 import { AppState } from '../../Redux/store';
 

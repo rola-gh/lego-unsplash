@@ -26,7 +26,8 @@ export const LikeBtn  = styled.button`
     border: 1px solid #d1d1d1;
     color: #767676;
     &:hover {
-    cursor: pointer;
+        cursor: pointer;
+    }
 `;
 
 export const LikeIcon  = styled.svg<{like: Boolean}>`

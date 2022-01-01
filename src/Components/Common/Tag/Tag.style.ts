@@ -24,6 +24,7 @@ export const TagContainer = styled.div`
 
 export const Tag = styled.div`
     align-items: center;
+    justify-content: center;
     display: flex;
     padding: 8px 16px;
     text-decoration: none;
