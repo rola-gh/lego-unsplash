@@ -17,3 +17,11 @@ export const darkTheme:Theme = {
 };
 
 // export type Theme = typeof lightTheme
+// export const defaultTheme: DefaultTheme = {
+  
+//   colors: {
+//     main: 'black', 
+//     secondary:"white"
+//  }
+
+// }
