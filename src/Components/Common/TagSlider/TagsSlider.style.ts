@@ -5,6 +5,7 @@ export const SliderContainer = styled.div`
     isolation: isolate;
     position: relative;
 `
+
 export const Slider = styled.div`
     &::before{
         bottom: 0;
@@ -30,12 +31,13 @@ export const Slider = styled.div`
         }
     }
 `
+
 export const Control = styled.div`
     align-items: center;
     display: flex;
     position: absolute;
+    margin-top: 5px;
     z-index: 2;
-    cursor: pointer;
 `
 export const NextControl = styled(Control)`
     right: 0;
@@ -45,6 +47,7 @@ export const NextControl = styled(Control)`
         border: none;
         padding: 0;
         text-align: inherit;
+        cursor: pointer;
     }
 `
 export const PrevControl = styled(Control)`
@@ -55,6 +58,7 @@ export const PrevControl = styled(Control)`
         border: none;
         padding: 0;
         text-align: inherit;
+        cursor: pointer;
     }
 `
 export const TagsContainer = styled.div`
@@ -65,5 +69,6 @@ export const TagsContainer = styled.div`
     scroll-behavior: smooth;
     margin-bottom: 0;
     margin-left: -8px;
+    margin-inline: 20px;
     gap:5px;
 `

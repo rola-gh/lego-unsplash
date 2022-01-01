@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ImgHeader, Left, DownloadWrap, DownloadBtn, Dropbtn, DropIcon, HeaderList, Dropdown, LikeBtn, LikeIcon, ContentItem, DropContent } from './styles'
 
 
@@ -26,7 +26,11 @@ function ImageHeader() {
     }
   };
 
-  document.addEventListener("mousedown", checkIfClickedOutside);
+  useEffect(() => {
+      document.addEventListener("mousedown", checkIfClickedOutside);
+      return () => document.removeEventListener("mousedown", checkIfClickedOutside)
+  }, [])
+
 
     return (
         <ImgHeader>
@@ -47,19 +51,19 @@ function ImageHeader() {
                         <DropIcon width="32" height="32" viewBox="0 0 32 32" version="1.1" aria-hidden="false"><path d="M9.9 11.5l6.1 6.1 6.1-6.1 1.9 1.9-8 8-8-8 1.9-1.9z"></path></DropIcon>
                     </Dropbtn>
                     <DropContent dropdown={dropdown}>
-                        <ContentItem href="#home">
+                        <ContentItem>
                             Small
                             <span> (640x800)</span>
                         </ContentItem>
-                        <ContentItem href="#about">
+                        <ContentItem>
                             Medium
                             <span> (1920x2400)</span>
                         </ContentItem>
-                        <ContentItem href="#contact">
+                        <ContentItem>
                             Large
                             <span> (2400x3000)</span>
                         </ContentItem>
-                        <ContentItem href="#contact">
+                        <ContentItem>
                             Orginal Size
                             <span> (2400x3000)</span>
                         </ContentItem>

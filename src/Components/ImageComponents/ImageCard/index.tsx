@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { IPhoto } from '../../../@Types/photo'
 import { Card } from './ImageCard.style'
 import {CardWithHover, FavIcon, WrapperAuthorDownload} from "../ImageComp.style";
@@ -8,8 +8,9 @@ import Author from "../../Common/Auther";
 import DownloadIcon from "../../Buttons/download";
 
 const Index:React.FC<{photo: IPhoto}> = ({photo}) => {
+    const navigate = useNavigate();
     return (
-        <Card bg={photo?.color || ''}>
+        <Card bg={photo?.color || ''} onClick={() => navigate(`/photo/${photo.id}`)}>
             <Link to={`/photo/${photo.id}`}>
                 <img src={photo.urls.full} alt={photo.alt_description} loading='lazy'/>
             </Link>

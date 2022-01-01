@@ -9,9 +9,9 @@ export interface IPhoto {
     username: string;
     name: string;
     portfolio_url: string;
-    location:string;
+    location: string;
     profile_image:{
-      small:string;
+      small: string;
     }
   };
 

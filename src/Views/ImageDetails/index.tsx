@@ -1,32 +1,30 @@
 import React from 'react';
 import ImageHeader from "./components/ImageHeader";
 import Image from "./components/Image";
-import ImageDeatails from "./components/ImageDeatails";
 import RelatedTags from "./components/RelatedTags";
 import RelatedPhotos from './components/RelatedPhotos';
 import { Container } from './styles';
+import ImageDetails from './components/ImageDetails';
 
-interface Props {
-  images: string[];
-}
+// interface Props {
+//   images: string[];
+// }
 
-const singleImage: React.FC<Props> = ({
-  images }) => {
-    const image = {url: String(images[1])};
+// const Index: React.FC<Props> = ({
+const Index: React.FC = () => {
+    const image = {url: ""};
     return (
       <>
         <ImageHeader />
         <Image image={image} />
-        <ImageDeatails />
-
+        <ImageDetails />
         <Container>
           <RelatedTags />
           <RelatedPhotos />
         </Container>
-        
       </>
       
     );
 };
 
-export default singleImage;
+export default Index;

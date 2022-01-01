@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
+
 export const TagContainer = styled.div`
-    border: 1px solid #d1d1d1;
+    ${(props) => props.style?.border ?  `border: ${props.style?.border}`: 'border: none'};
     border-radius: 4px;
     color: ${(props) => props.style?.color || '#767676'};
     cursor: pointer;
@@ -9,7 +10,8 @@ export const TagContainer = styled.div`
     overflow: hidden;
     transition: background-color .1s ease-in-out;
     min-width: fit-content;
-    
+    background-color: ${(props) => props.style?.backgroundColor || '#f5f5f5'};
+
     & > img{
         border-style: none;
     }
@@ -18,14 +20,11 @@ export const TagContainer = styled.div`
         color: inherit;
         text-decoration: none;
     }
-
-    &:hover{
-        background-color: ${(props) => props.style?.backgroundColor || '#f5f5f5'}
-    }
 `;
 
 export const Tag = styled.div`
     align-items: center;
+    justify-content: center;
     display: flex;
     padding: 8px 16px;
     text-decoration: none;

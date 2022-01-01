@@ -7,9 +7,11 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     transition: all .5s linear;
   }
+  
   p {
     line-height: 1.4rem;
   }
+
   .btn-primary {
     background: ${({ theme }) => theme.primary};
     color: ${({ theme }) => theme.body};

@@ -42,7 +42,7 @@ export default function SearchDefaultBox({ handleClickChoice }: IProps) {
         <ul>
           {staticData.searches.map((item) => (
             <li key={item} onClick={() => handleClickChoice(item)}>
-              <Tag text={item}>{item}</Tag>
+              <Tag text={item} style={{border:'1px solid #d1d1d1', backgroundColor:'#fff', color:'#767676'}}>{item}</Tag>
             </li>
           ))}
         </ul>
@@ -53,7 +53,7 @@ export default function SearchDefaultBox({ handleClickChoice }: IProps) {
         <ul>
           {staticData.topics.map((item) => (
             <li key={item} onClick={() => handleClickChoice(item)}>
-              <Tag text={item}>{item}</Tag>
+              <Tag text={item}  style={{border:'1px solid #d1d1d1', backgroundColor:'#fff', color:'#767676'}}>{item}</Tag>
             </li>
           ))}
         </ul>
@@ -63,7 +63,7 @@ export default function SearchDefaultBox({ handleClickChoice }: IProps) {
         <ul>
           {staticData.collections.map((item) => (
             <li key={item} onClick={() => handleClickChoice(item)}>
-              <Tag text={item}>{item}</Tag>
+              <Tag text={item}  style={{border:'1px solid #d1d1d1', backgroundColor:'#fff', color:'#767676'}}>{item}</Tag>
             </li>
           ))}
         </ul>

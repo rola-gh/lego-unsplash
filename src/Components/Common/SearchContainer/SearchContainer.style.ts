@@ -14,6 +14,7 @@ export const Container = styled.section<IContainer>`
         align-items: flex-start;
         position: relative;
         gap: 2px;
+        max-height: inherit;
         padding: 15vh;
         padding-inline: 20vw;
         background-color: rgba(0,0,0,0.4);
