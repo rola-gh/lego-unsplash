@@ -1,12 +1,16 @@
+import React from "react";
 import { Header } from "./Header.style";
 import { Link } from "react-router-dom";
 import { Logo } from "../../../Assets/Icons";
 import SearchInput from "../../Search/searchInput";
-// import { Toggle } from "../../../Utils/Theme/styles/toggle";
-// import { useDarkMode } from "../../../Utils/Theme/styles/useDarkMode";
+import { Toggle } from '../../../Utils/Theme/Toggle';
 
-const Index = () => {
-  // const [ theme , toggleTheme ] = useDarkMode();
+interface themeProp {
+  theme: string;
+  toggleTheme: () => void;
+}
+
+const Index: React.FC<themeProp> = ({ toggleTheme, theme }) => {
   return (
     <Header>
       <Link to="/">
@@ -17,6 +21,7 @@ const Index = () => {
       </div>
       {/* <Toggle theme={theme} toggleTheme={toggleTheme} /> */}
       {/* Theme Switch */}
+     <Toggle theme={theme} toggleTheme={toggleTheme}  />
     </Header>
   );
 };
