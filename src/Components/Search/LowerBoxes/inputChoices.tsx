@@ -1,4 +1,4 @@
-import { ChoicesWrapper } from "./search.style";
+import { ChoicesWrapper } from "../search.style";
 
 export interface IChoice {
   query?: string;

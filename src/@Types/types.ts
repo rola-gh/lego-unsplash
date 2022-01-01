@@ -1,10 +1,9 @@
-// import { Basic as BasicPhoto } from "unsplash-js/dist/methods/photos/types";
-// import { Basic as BasicUser } from "unsplash-js/dist/methods/users/types";
 import { AllPhotos } from "../Redux/AllPhotos/Constants";
 import { SinglePhoto } from "../Redux/SinglePhoto/Constants";
 import { SearchPhotos } from "../Redux/SearchPhotos/Constants";
 import { UserInfo } from "../Redux/UserInfo/Constants";
 import { DownloadPhotos } from "../Redux/DownloadPhoto/Constants";
+import { RandomPhoto, RandomPhotos } from "../Redux/Random/Constants";
 
 // All Photos Types
 export interface IGetAllPhotosStart {
@@ -22,6 +21,44 @@ export type AllPhotosActionsType =
   | IGetAllPhotosStart
   | IGetAllPhotosSucces
   | IGetAllPhotosFail;
+
+// Random Photos Types
+export interface IGetRandomPhotosStart {
+  type: RandomPhotos.GET_RANDOM_PHOTOS_START;
+}
+export interface IGetRandomPhotosSucces {
+  type:
+    | RandomPhotos.GET_RANDOM_PHOTOS_SUCCESS
+    | RandomPhotos.GET_RANDOM_PHOTOS_NEW_SUCCESS;
+  payload: any;
+}
+export interface IGetRandomPhotosFail {
+  type: RandomPhotos.GET_RANDOM_PHOTOS_FAIL;
+  payload: any;
+}
+export type RandomPhotosActionsType =
+  | IGetRandomPhotosStart
+  | IGetRandomPhotosSucces
+  | IGetRandomPhotosFail;
+
+// Random Single Photo Types
+export interface IGetRandomPhotoStart {
+  type: RandomPhoto.GET_RANDOM_PHOTO_START;
+}
+export interface IGetRandomPhotoSucces {
+  type:
+    | RandomPhoto.GET_RANDOM_PHOTO_SUCCESS
+    | RandomPhoto.GET_RANDOM_PHOTO_NEW_SUCCESS;
+  payload: any;
+}
+export interface IGetRandomPhotoFail {
+  type: RandomPhoto.GET_RANDOM_PHOTO_FAIL;
+  payload: any;
+}
+export type RandomPhotoActionsType =
+  | IGetRandomPhotoStart
+  | IGetRandomPhotoSucces
+  | IGetRandomPhotoFail;
 
 // Single Photo Types
 export interface ISinglePhotoStart {
