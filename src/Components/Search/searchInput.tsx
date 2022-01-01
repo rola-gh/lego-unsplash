@@ -1,11 +1,11 @@
 import { memo, useRef, useState } from "react";
-import Icon from "./SearchIcon";
-import InputChoices from "./inputChoices";
+import Icon from "./Icons/SearchIcon";
+import InputChoices from "./LowerBoxes/inputChoices";
 import { BoxDown, StyledAutoComplete, Wrapper } from "./search.style";
-import SearchDefaultBox from "./SearchDefaultBox";
-import CloseIcon from "./CloseIcon";
+import SearchDefaultBox from "./LowerBoxes/SearchDefaultBox";
+import CloseIcon from "./Icons/CloseIcon";
 import { useNavigate } from "react-router";
-import { IChoice } from "./inputChoices";
+import { IChoice } from "./LowerBoxes/inputChoices";
 
 interface IProps {
   borderRadius?: boolean;

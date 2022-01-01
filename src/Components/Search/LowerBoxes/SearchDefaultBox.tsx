@@ -1,17 +1,35 @@
 import { useDispatch, useSelector } from "react-redux";
-import { searchClearRecent } from "../../Redux/SearchPhotos/Actions";
-import { AppState } from "../../Redux/store";
-import Tag from "../Common/Tag";
-import { SearchBox } from "./search.style";
+import { searchClearRecent } from "../../../Redux/SearchPhotos/Actions";
+import { AppState } from "../../../Redux/store";
+import Tag from "../../Common/Tag";
+import { SearchBox } from "../search.style";
 
 interface IProps {
   handleClickChoice: Function;
 }
 
 const staticData = {
-  searches: ["one", "two", "three", "four", "five"],
-  topics: ["one", "two", "three", "four", "five"],
-  collections: ["one", "two", "three", "four", "five"],
+  searches: [
+    "wallpaper",
+    "wather",
+    "merry christmas",
+    "2022",
+    "creativity, project, game, apps, paintings",
+  ],
+  topics: [
+    "Food & Drink",
+    "Travel",
+    "Arts & Culture",
+    "Animals",
+    "Experimental",
+  ],
+  collections: [
+    "Work from Anywhere",
+    "Food and Drink for Winter",
+    "health",
+    "Coronavirus COVID-19 pandemic",
+    "food + food photography & styling",
+  ],
 };
 
 export default function SearchDefaultBox({ handleClickChoice }: IProps) {
@@ -42,7 +60,16 @@ export default function SearchDefaultBox({ handleClickChoice }: IProps) {
         <ul>
           {staticData.searches.map((item) => (
             <li key={item} onClick={() => handleClickChoice(item)}>
-              <Tag text={item} style={{border:'1px solid #d1d1d1', backgroundColor:'#fff', color:'#767676'}}>{item}</Tag>
+              <Tag
+                text={item}
+                style={{
+                  border: "1px solid #d1d1d1",
+                  backgroundColor: "#fff",
+                  color: "#767676",
+                }}
+              >
+                {item}
+              </Tag>
             </li>
           ))}
         </ul>
@@ -53,7 +80,16 @@ export default function SearchDefaultBox({ handleClickChoice }: IProps) {
         <ul>
           {staticData.topics.map((item) => (
             <li key={item} onClick={() => handleClickChoice(item)}>
-              <Tag text={item}  style={{border:'1px solid #d1d1d1', backgroundColor:'#fff', color:'#767676'}}>{item}</Tag>
+              <Tag
+                text={item}
+                style={{
+                  border: "1px solid #d1d1d1",
+                  backgroundColor: "#fff",
+                  color: "#767676",
+                }}
+              >
+                {item}
+              </Tag>
             </li>
           ))}
         </ul>
@@ -63,7 +99,16 @@ export default function SearchDefaultBox({ handleClickChoice }: IProps) {
         <ul>
           {staticData.collections.map((item) => (
             <li key={item} onClick={() => handleClickChoice(item)}>
-              <Tag text={item}  style={{border:'1px solid #d1d1d1', backgroundColor:'#fff', color:'#767676'}}>{item}</Tag>
+              <Tag
+                text={item}
+                style={{
+                  border: "1px solid #d1d1d1",
+                  backgroundColor: "#fff",
+                  color: "#767676",
+                }}
+              >
+                {item}
+              </Tag>
             </li>
           ))}
         </ul>

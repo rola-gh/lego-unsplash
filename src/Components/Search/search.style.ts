@@ -102,11 +102,12 @@ export const SearchBox = styled.div`
 
   & ul {
     margin-top: 8px;
-    margin-bottom: 8px;
     display: flex;
+    flex-wrap: wrap;
   }
 
   & ul li {
     margin-right: 8px;
+    margin-bottom: 8px;
   }
 `;
