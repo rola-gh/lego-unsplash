@@ -31,14 +31,17 @@ export const StyledAutoComplete = styled.input<IStyledAutoComplete>`
   transition: all 0.1s;
   width: 100%;
   padding: 10px 40px;
-  background-color: #eee;
+  color: ${(props) => props.theme.text};
+  background-color: ${(props) =>
+    props.theme.body === "#ffffff" ? "#eeeeee" : "#555555"};
   border: ${(props) =>
     props.borderRadius ? "none;margin:1px" : "2px solid #d1d1d1;"};
   border-radius: ${(props) =>
     props.borderRadius ? "24px;height: 40x;" : "4px;height: 54px;"};
   &:focus {
     outline: none;
-    background-color: #fff;
+    background-color: ${(props) => props.theme.body};
+
     box-shadow: ${(props) =>
       props.borderRadius ? ";border:1px solid #d1d1d1;" : "0 0 0 5px #0003;"};
   }
@@ -52,12 +55,12 @@ export const BoxDown = styled.div<IBoxWrapperProps>`
   display: ${(props) => (props.openChoices ? "block" : "none")};
   flex-direction: column;
   width: 100%;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.body};
   position: absolute;
   top: calc(100% + 8px);
   border: 1px solid #d1d1d1;
   border-radius: 4px;
-  box-shadow: 0 2px 4px #0000001f;
+  box-shadow: 0 2px 4px ${(props) => props.theme.body}1f;
   padding-top: 8px;
   padding-bottom: 8px;
   z-index: 1;
@@ -85,8 +88,11 @@ export const ChoicesWrapper = styled.div`
     transition: all 0.1s;
     padding: 10px;
     margin-bottom: 1px;
+    color: ${(props) => props.theme.text};
     &:hover {
-      background-color: #f1f1f1;
+      /* background-color: #f1f1f1; */
+      background-color: ${(props) =>
+        props.theme.body === "#ffffff" ? "#f1f1f1" : "#222222"};
     }
   }
 `;
