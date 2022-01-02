@@ -20,8 +20,8 @@ export const  AuthorImg = styled.div`
       object-fit: cover;
     }
 `;
-export const AuthorName= styled.div`
-    color: ${({ theme }) => theme.text};;
+export const AuthorName = styled.div`
+    color: ${({theme, style}) =>  style?.color || theme.text};
     text-decoration: none;
     text-shadow: 0 1px 8px #0000001a;
     will-change: opacity;

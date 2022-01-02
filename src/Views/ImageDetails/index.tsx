@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import ImageHeader from "./components/ImageHeader";
 import Image from "./components/Image";
 import RelatedTags from "./components/RelatedTags";
@@ -10,14 +10,15 @@ import { getSinglePhoto } from "../../Redux/SinglePhoto/Actions";
 import {useDispatch, useSelector} from 'react-redux'
 import { AppState } from "../../Redux/store";
 
+interface ITag{
+  type: string
+  title: string
+}
+
 const Index: React.FC = () => {
   const { id } = useParams();
-
-  const [image, setImage] = useState();
-
   const dispatch = useDispatch();
-
-  const {photo}  = useSelector((state:AppState) => state.SinglePhoto);
+  const {photo, error}  = useSelector((state:AppState) => state.SinglePhoto);
 
   useEffect(() => {
     if(id){
@@ -25,20 +26,18 @@ const Index: React.FC = () => {
     }
   }, [id]);
 
-  useEffect(() => {
-    console.log(photo)
-    setImage(photo)
-  }, [photo])
-
   return (
     <>
     {
-      image && <>
-        <ImageHeader image={image}/>
-        <Image image={image} />
+      error && <>Something went wrong !!</>
+    }
+    {
+      photo && <>
+        <ImageHeader image={photo}/>
+        <Image image={photo} />
         <ImageDetails />
         <Container>
-          <RelatedTags />
+          <RelatedTags tags={photo?.tags?.map((tag:ITag) => tag?.title)}/>
           <RelatedPhotos />
         </Container>
       </>

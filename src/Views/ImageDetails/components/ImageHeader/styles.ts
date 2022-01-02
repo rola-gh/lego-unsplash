@@ -50,7 +50,7 @@ export const DownloadBtn = styled.a`
     border-radius: 2px;
     cursor: pointer;
     transition: hover 0.5s;
-
+    text-decoration: none;
     &:hover {
         background-color: #37a866;
     }

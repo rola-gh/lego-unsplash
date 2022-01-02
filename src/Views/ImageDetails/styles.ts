@@ -10,3 +10,10 @@ export const SectionTitle = styled.h4`
     padding-bottom: 16px;
     padding-top: 60px;
 `;
+
+export const SectionBody = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    max-width: 80%;
+`;

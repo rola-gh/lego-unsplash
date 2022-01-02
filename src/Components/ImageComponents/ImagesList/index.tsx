@@ -39,8 +39,8 @@ const Index: React.FC<IProps> = ({photos}) => {
                         </div>
                     </>
                 }
-                <Loading />
             </List>
+            <Loading />
         </Container>
     )
 }
