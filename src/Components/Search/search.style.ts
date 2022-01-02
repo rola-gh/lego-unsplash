@@ -7,6 +7,7 @@ interface IStyledWrapper {
 export const Wrapper = styled.div<IStyledWrapper>`
   width: 100%;
   position: relative;
+  z-index: 50;
   & form > Button {
     background: none;
     border: none;
@@ -95,6 +96,8 @@ export const ChoicesWrapper = styled.div`
         props.theme.body === "#ffffff" ? "#f1f1f1" : "#222222"};
     }
   }
+
+  
 `;
 
 export const SearchBox = styled.div`
@@ -104,6 +107,10 @@ export const SearchBox = styled.div`
   & > div {
     margin-bottom: 8px;
     padding: 8px 16px;
+  }
+
+  & span {
+    color: ${({theme}) => theme.text};
   }
 
   & ul {
