@@ -2,40 +2,42 @@ import { IPhoto } from "../../../@Types/photo"
 import ImageCard from '../ImageCard'
 import {List, Container} from './ImagesList.style';
 import Loading from '../../Common/Spinner/Loading'
+import { useEffect, useState } from "react";
+import { generatePhotoArraies, IPhotos } from "../../../Utils/helpers";
+
 interface IProps{
     photos: IPhoto[]
 }
 
 const Index: React.FC<IProps> = ({photos}) => {
-    // console.log(photos);
+    const [images, setImages] = useState<IPhotos>();
+
+    useEffect(() => {
+        setImages(generatePhotoArraies(photos))
+    }, [photos])
+
     return (
         <Container>
             <List>
                 {
-                    // photos.length > 0 &&
-                    // <>
-                    //     <div>
-                    //         <ImageCard photo={photos[0]}/>
-                    //         <ImageCard photo={photos[5]}/>
-                    //         <ImageCard photo={photos[3]}/>
-                    //     </div>
-                    //     <div>
-                    //         <ImageCard photo={photos[1]}/>
-                    //         <ImageCard photo={photos[0]}/>
-                    //         <ImageCard photo={photos[2]}/>
-                    //     </div>
-                    //     <div>
-                    //         <ImageCard photo={photos[0]}/>
-                    //         <ImageCard photo={photos[2]}/>
-                    //         <ImageCard photo={photos[4]}/>
-                    //     </div>
-                    // </>
-                    photos && photos.map((photo,index) => 
-                       ( <div key={index}> 
-                            <ImageCard photo={photo}/>
-
-                        </div>)
-                    )
+                    photos.length > 0 &&
+                    <>
+                        <div>
+                            {
+                                images?.array1.map(image => <ImageCard key={image.id} photo={image}/>)
+                            }
+                        </div>
+                        <div>
+                            {
+                                images?.array2.map(image => <ImageCard key={image.id} photo={image}/>)
+                            }
+                        </div>
+                        <div>
+                            {
+                                images?.array3.map(image => <ImageCard key={image.id} photo={image}/>)
+                            }
+                        </div>
+                    </>
                 }
                 <Loading />
             </List>

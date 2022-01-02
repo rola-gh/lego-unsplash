@@ -41,7 +41,7 @@ export const DownloadWrap = styled.div`
     margin-left: 10px;
 `;
 
-export const DownloadBtn = styled.button`
+export const DownloadBtn = styled.a`
     background-color: #3cb46e;
     color: white;
     font-size: 14px;
