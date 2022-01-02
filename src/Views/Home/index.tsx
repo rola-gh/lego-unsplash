@@ -4,6 +4,7 @@ import { getAllPhotos } from "../../Redux/AllPhotos/Actions";
 import SearchContainer from "../../Components/Common/SearchContainer";
 import ImagesList from "../../Components/ImageComponents/ImagesList";
 import { AppState } from "../../Redux/store";
+import { getRandomSinglePhoto } from "../../Redux/Random/Actions";
 
 const Index = () => {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ const Index = () => {
 
   const {
     AllPhotos: { photos },
+    RandomSinglePhoto: { photo }
   } = useSelector((state: AppState) => state);
 
   const infiniteScroll = useCallback(() => {
@@ -29,11 +31,12 @@ const Index = () => {
 
   useEffect(() => {
     dispatch(getAllPhotos(page));
+    dispatch(getRandomSinglePhoto())
   }, [page])
 
   return (
     <>
-      <SearchContainer />
+      <SearchContainer imageUrl={photo?.urls?.small}/>
       {photos && <ImagesList photos={photos} />}
     </>
   );

@@ -17,7 +17,7 @@ const Image:React.FC<Props> = ({image}) => {
         image && 
         <ImageContainer zoom={zoom}>
           <ImageTag
-            src={image?.urls?.raw}
+            src={image?.urls?.regular}
             alt="Image"
           />
           <ImageIcon>

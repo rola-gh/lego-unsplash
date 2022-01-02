@@ -12,7 +12,7 @@ export interface initialState {
 }
 
 export function RandomPhotosReducer(
-  state: initialState = { isLoading: false, error: "", photos: [] },
+  state: initialState = { isLoading: false, error: "", photos: []},
   action: RandomPhotosActionsType
 ) {
   switch (action.type) {
@@ -49,11 +49,11 @@ export function RandomPhotosReducer(
 export interface RinitialState {
   isLoading: boolean;
   error: any;
-  photos: Basic;
+  photo: Basic;
 }
 
 export function RandomSinglePhotoReducer(
-  state: RinitialState = { isLoading: false, error: "", photos: {} as Basic },
+  state: RinitialState = { isLoading: false, error: "", photo: {} as Basic },
   action: RandomPhotoActionsType
 ) {
   switch (action.type) {

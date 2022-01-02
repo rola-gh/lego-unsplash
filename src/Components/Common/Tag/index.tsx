@@ -14,7 +14,7 @@ const index: React.FC<ITag> = (props) => {
     <TagContainer style={props.style || {}}>
       {props.image && <img src={props.image} alt="" />}
       {props.icon && props.icon}
-      <Link to={`/photos/${props.text}`}>
+      <Link to={`/search/${props.text}`}>
         <Tag>{props.children}</Tag>
       </Link>
     </TagContainer>

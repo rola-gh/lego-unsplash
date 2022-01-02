@@ -1,4 +1,4 @@
-import { memo, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import Icon from "./Icons/SearchIcon";
 import InputChoices from "./LowerBoxes/inputChoices";
 import { BoxDown, StyledAutoComplete, Wrapper } from "./search.style";
@@ -6,12 +6,14 @@ import SearchDefaultBox from "./LowerBoxes/SearchDefaultBox";
 import CloseIcon from "./Icons/CloseIcon";
 import { useNavigate } from "react-router";
 import { IChoice } from "./LowerBoxes/inputChoices";
+import {useParams} from 'react-router-dom'
 
 interface IProps {
   borderRadius?: boolean;
 }
 
 function SearchInput({ borderRadius }: IProps) {
+  const {keyword} = useParams();
   const [state, setstate] = useState<string>("");
   const [openChoices, setOpenChoices] = useState<boolean>(false);
   const [choices, setChoices] = useState<IChoice[]>([]);
@@ -24,6 +26,13 @@ function SearchInput({ borderRadius }: IProps) {
     setstate(item);
     setOpenChoices(false);
   };
+
+  useEffect(() => {
+    if(keyword){
+      console.log(keyword);
+      setstate(keyword as string);
+    }
+  }, [keyword])
 
   // used to get choices from API and show them into choices box
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -5,7 +5,9 @@ interface IContainer {
 }
 
 export const Container = styled.section<IContainer>`
-    background: url(${props => props?.imageUrl});
+    background-image: url(${props => props?.imageUrl});
+    background-repeat: no-repeat;
+    background-size: cover;
     max-height: 60vh;
     & > div{
         color:white;

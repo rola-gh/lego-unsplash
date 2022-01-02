@@ -10,7 +10,6 @@ export const lightTheme:Theme = {
   text: '#121212',
   primary: '#6200ee',
   gradient: 'linear-gradient(#39598A, #79D7ED)',
- 
 };
 
 export const darkTheme:Theme = {

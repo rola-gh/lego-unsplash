@@ -20,7 +20,7 @@ const Index:React.FC<{photo: IPhoto}> = ({photo}) => {
                         <FavoriteIcon color='#767676' height='15px' width='15px'/>
                     </FavIcon>
                     <WrapperAuthorDownload>
-                        <Author authorName={photo.user.name}  authorImg={photo.user.profile_image.small}/>
+                        <Author authorName={photo.user.name}  authorImg={photo.user.profile_image.small} color='#fff'/>
                         <DownloadIcon   />
                     </WrapperAuthorDownload>
                 </CardWithHover>
