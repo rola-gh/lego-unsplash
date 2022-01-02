@@ -1,7 +1,7 @@
 import { IPhoto } from "../../../@Types/photo"
 import ImageCard from '../ImageCard'
 import {List, Container} from './ImagesList.style';
-
+import Loading from '../../Common/Spinner/Loading'
 interface IProps{
     photos: IPhoto[]
 }
@@ -31,6 +31,7 @@ const Index: React.FC<IProps> = ({photos}) => {
                         </div>
                     </>
                 }
+                <Loading />
             </List>
         </Container>
     )
