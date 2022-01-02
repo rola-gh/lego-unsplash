@@ -10,7 +10,7 @@ import { Title } from "./styles";
 
 export default function SearchResult() {
   const dispatch = useDispatch();
-  const [page, setPage] = useState<number>(1);
+  const [page, setPage] = useState<number>(2);
 
   const { keyword } = useParams();
   const {
@@ -18,23 +18,24 @@ export default function SearchResult() {
   } = useSelector((state: AppState) => state);
 
   const infiniteScroll = useCallback(() => {
-    let Height = window.innerHeight + window.scrollY;
+    let Height = window.innerHeight + window.scrollY + 1;
     let bottom = document.documentElement.offsetHeight;
     if (Height >= bottom) {
       dispatch(searchByKeyword(keyword as string, page));
       setPage(page + 1);
     }
-  }, [page, dispatch]);
+  }, [dispatch, page]);
 
   useEffect(() => {
     return () => window.removeEventListener("scroll", infiniteScroll);
-  }, [dispatch]);
+  }, [dispatch, infiniteScroll]);
 
   window.addEventListener("scroll", infiniteScroll);
 
   useEffect(() => {
     if (keyword) {
       dispatch(searchByKeyword(keyword));
+      setPage(2);
     }
   }, [keyword, dispatch]);
 
