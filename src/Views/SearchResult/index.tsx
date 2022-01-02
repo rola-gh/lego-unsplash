@@ -1,5 +1,5 @@
 import NotFound from "../../Components/NotFound/NotFound";
-import Typography from "../../Components/Common/Typography";
+import Typography from "../../Components/Common/typography";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { searchByKeyword } from "../../Redux/SearchPhotos/Actions";
