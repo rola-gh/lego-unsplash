@@ -21,11 +21,10 @@ export const  AuthorImg = styled.div`
     }
 `;
 export const AuthorName= styled.div`
-    color: #fff;
+    color: ${({ theme }) => theme.text};;
     text-decoration: none;
     text-shadow: 0 1px 8px #0000001a;
     will-change: opacity;
     display: block;
     font-size: 15px;
-}
 `;
