@@ -7,7 +7,7 @@ interface IStyledWrapper {
 export const Wrapper = styled.div<IStyledWrapper>`
   width: 100%;
   position: relative;
-  z-index: 50;
+  z-index: 999;
   & form > Button {
     background: none;
     border: none;
@@ -65,11 +65,12 @@ export const BoxDown = styled.div<IBoxWrapperProps>`
   padding-top: 8px;
   padding-bottom: 8px;
   z-index: 1;
-  color: #000;
+  color: ${(props) => props.theme.text};
 
   & button {
     background: none;
     border: none;
+    color: ${(props) => props.theme.text};
     cursor: pointer;
     opacity: 0.7;
     &:hover {
